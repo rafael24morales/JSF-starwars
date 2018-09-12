@@ -21,20 +21,33 @@ import java.util.logging.Logger;
  */
 public class JediDaoImpl implements IDaoComun{
     
+    
+    private JediDaoImpl(){}
+    
+    private static final JediDaoImpl INSTANCIA = new JediDaoImpl();
+
+    public static JediDaoImpl getINSTANCIA() {
+        return INSTANCIA;
+    }
+    
+    
+    
 
     @Override
     public boolean insert(Object objeto) {
             Jedi jedi = (Jedi) objeto;
-        try {
-            Connection con = Conexion.getConnection();
             String queryInsert = "INSERT INTO jedi (nombre) "
                     + "VALUES ( ' "+ jedi.getNombre() + " ' ) ";
+        try {
+            Connection con = Conexion.getConnection();
             Statement stm = con.createStatement();
-            stm.executeUpdate(queryInsert);
-            
+            int resultado = stm.executeUpdate(queryInsert);
+            if(resultado == 1)
+                return true;
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
+        return false;
     }
 
     @Override

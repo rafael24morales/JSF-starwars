@@ -5,11 +5,15 @@
  */
 package com.java.servicios.comunes;
 
+import java.sql.ResultSet;
+
 /**
  *
  * @author rafaelm
  */
 public interface IDaoComun {
     boolean insert(Object objeto );
-    
+    ResultSet read();
+    boolean update(Object objeto);
+    boolean delete(int id);
 }
