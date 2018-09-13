@@ -35,7 +35,7 @@ public class JediDaoImpl implements IDaoComun{
     private ResultSet rs;
     
     
-    public boolean dml(String query){
+    private boolean dml(String query){
         try {
              con = Conexion.getConnection();
              stm = con.createStatement();

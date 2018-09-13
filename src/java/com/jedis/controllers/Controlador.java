@@ -9,19 +9,23 @@ import com.java.servicios.comunes.impl.JediDaoImpl;
 import com.java.servicios.comunes.impl.SableDaoImpl;
 import com.jedis.bean.Jedi;
 import com.jedis.bean.Sable;
+import java.util.ArrayList;
+import java.util.List;
 import javax.faces.bean.ManagedBean;
 
 /**
  *
  * @author rafaelm
  */
-@ManagedBean(name = "serv")
+@ManagedBean(name = "controller")
 public class Controlador {
+    private static boolean resultado;
+    public List jedis = new ArrayList();
     
     public static String guardarJedi(Jedi jedi){
         
         JediDaoImpl instacia = JediDaoImpl.getINSTANCIA();
-        boolean resultado = instacia.insert(jedi);
+        resultado = instacia.insert(jedi);
         
         return (resultado) ? "respuesta" : "index";
     }
@@ -29,9 +33,15 @@ public class Controlador {
     public static String guardarSable(Sable sable){
         
         SableDaoImpl instacia = SableDaoImpl.getINSTANCIA();
-        boolean resultado = instacia.insert(sable);
+        resultado = instacia.insert(sable);
         
         return (resultado) ? "respuesta" : "index";
     }
     
+    public List leerListaJedi(){
+        JediDaoImpl instancia = JediDaoImpl.getINSTANCIA();
+        jedis = instancia.read();
+        
+        return jedis;
+    } 
 }
