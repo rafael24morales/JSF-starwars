@@ -26,7 +26,7 @@ public class Controlador {
         return (resultado) ? "respuesta" : "index";
     }
     
-        public static String guardarSable(Sable sable){
+    public static String guardarSable(Sable sable){
         
         SableDaoImpl instacia = SableDaoImpl.getINSTANCIA();
         boolean resultado = instacia.insert(sable);

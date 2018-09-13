@@ -6,6 +6,7 @@
 package com.java.servicios.comunes;
 
 import java.sql.ResultSet;
+import java.util.List;
 
 /**
  *
@@ -13,7 +14,7 @@ import java.sql.ResultSet;
  */
 public interface IDaoComun {
     boolean insert(Object objeto );
-    ResultSet read();
+    List read();
     boolean update(Object objeto);
     boolean delete(int id);
 }
