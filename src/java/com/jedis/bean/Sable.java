@@ -5,11 +5,17 @@
  */
 package com.jedis.bean;
 
+import com.jedis.controllers.Controlador;
+import javax.faces.bean.ManagedBean;
+
+
+
 /**
  *
  * @author rafaelm
  */
-public class Sable {
+@ManagedBean(name = "sable")
+public class Sable implements MetodosBean{
     
     private int idSable;
     private String tipoSable;
@@ -31,6 +37,11 @@ public class Sable {
 
     public void setTipoSable(String tipoSable) {
         this.tipoSable = tipoSable;
+    }
+
+    @Override
+    public String insert() {
+        return Controlador.guardarSable(this);
     }
     
     

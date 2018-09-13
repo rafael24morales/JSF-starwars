@@ -6,6 +6,7 @@
 package com.jedis.bean;
 
 import com.java.servicios.comunes.impl.JediDaoImpl;
+import com.jedis.controllers.Controlador;
 import javax.faces.bean.ManagedBean;
 
 /**
@@ -69,12 +70,7 @@ public class Jedi {
     }
     
     public String insert(){
-        JediDaoImpl instacia = JediDaoImpl.getINSTANCIA();
-        boolean resultado = instacia.insert(this);
-        if(resultado)
-            return "respuesta";
-        else
-            return "index";
+        return Controlador.guardarJedi(this);
     }
     
     

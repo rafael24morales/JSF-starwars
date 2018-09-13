@@ -8,11 +8,19 @@
     </h:head>
     <h:body>
         <h:form>
-            <h:inputText id="jedi" required="true" pablito:placeholder="jedi"
+            <h:inputText id="jedi" required="true" pablito:placeholder="Jedi"
                      requiredMessage="Ingresa el nombre del JEDI :C "
                      value="#{jedi.nombre}"/>
                      
             <h:commandButton value="Guardar" action="#{jedi.insert()}"/>
+        </h:form> 
+        
+         <h:form>
+            <h:inputText id="sable" required="true" pablito:placeholder="Sable"
+                     requiredMessage="Ingresa el tipo del Sable :C "
+                     value="#{sable.tipoSable}"/>
+                     
+            <h:commandButton value="Guardar" action="#{sable.insert()}"/>
         </h:form> 
         
     </h:body>

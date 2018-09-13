@@ -5,6 +5,10 @@
  */
 package com.jedis.controllers;
 
+import com.java.servicios.comunes.impl.JediDaoImpl;
+import com.java.servicios.comunes.impl.SableDaoImpl;
+import com.jedis.bean.Jedi;
+import com.jedis.bean.Sable;
 import javax.faces.bean.ManagedBean;
 
 /**
@@ -14,8 +18,20 @@ import javax.faces.bean.ManagedBean;
 @ManagedBean(name = "serv")
 public class Controlador {
     
-    public static String guardar(){
-        return "respuesta";
+    public static String guardarJedi(Jedi jedi){
+        
+        JediDaoImpl instacia = JediDaoImpl.getINSTANCIA();
+        boolean resultado = instacia.insert(jedi);
+        
+        return (resultado) ? "respuesta" : "index";
+    }
+    
+        public static String guardarSable(Sable sable){
+        
+        SableDaoImpl instacia = SableDaoImpl.getINSTANCIA();
+        boolean resultado = instacia.insert(sable);
+        
+        return (resultado) ? "respuesta" : "index";
     }
     
 }
